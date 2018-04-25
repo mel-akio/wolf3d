@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/14 13:39:43 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/19 18:19:53 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/25 13:14:27 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -108,6 +108,7 @@ typedef struct		s_param
 	t_img			crosshair;
 	t_img			menu;
 	t_img			post_traitment;
+	int				wall_dir[ITER];
 	void			*mlx;
 	void			*win;
 	t_coor			*map;
@@ -180,11 +181,15 @@ int					step_x1(t_coor p1, t_coor p2, int *x, t_param *ptr_par);
 int					step_x2(t_coor p1, t_coor p2, int *x, t_param *ptr_par);
 int					step_y1(t_coor p1, t_coor p2, int *y, t_param *ptr_par);
 int					step_y2(t_coor p1, t_coor p2, int *y, t_param *ptr_par);
-void 				show_wall(t_param par, t_param *ptr, int dist, t_var v);
-void				ray_cast(t_var v, t_param *par, t_param *ptr_par, t_coor player);
+void				show_wall(t_param par, t_param *ptr, int dist, t_var v);
+void				ray_cast(t_var v, t_param *par, t_param *ptr_par,
+t_coor player);
 void				exit_game(t_param *param);
 void				free_line(char **tab);
 void				show_menu(t_param *param);
 int					secure(char *path);
+t_coor				*close_map(t_coor *map, t_param *param);
+int					side_wall(t_param *param, int x , int y);
+void				color_fix(t_param *param);
 
 #endif

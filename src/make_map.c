@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/14 13:39:22 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/19 18:20:49 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/20 15:48:57 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,7 +38,7 @@ t_coor		*convert_int(char ***str, t_param param)
 	}
 	free(str);
 	map[(int)count.z].z = -100000;
-	return (map);
+	return (close_map(map, &param));
 }
 
 t_coor		*make_map(char **str, t_param *param, t_coor size)

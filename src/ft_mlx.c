@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/14 13:39:15 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/19 18:20:26 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/25 14:43:44 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -95,11 +95,21 @@ void				calc_wall(t_param par, int dist, t_param *ptr)
 
 void				show_wall(t_param par, t_param *ptr, int dist, t_var v)
 {
+	int color;
+
+	color = 0;
+	if (ptr->wall_dir[(v.x + v.j) / 4] == 5)
+		color = rgb(0, 0, 10);
+	else if (ptr->wall_dir[(v.x + v.j) / 4] == 10)
+		color = rgb(5, 0, 0);
+	else if (ptr->wall_dir[(v.x + v.j) / 4] == 15)
+		color = rgb(5, 0, 10);
 	ft_setpx((int*)ptr->display.data, v.x + v.j, LENGHT / 2 - v.i,
-ft_shader(par.wall_colors[(v.col + 32 * (v.i / (dist / 14)))], par.dist[v.c]));
+ft_shader(par.wall_colors[(v.col + 32 * (v.i / (dist / 14)))],
+par.dist[v.c]) + color);
 	ft_setpx((int*)ptr->display.data, v.x + v.j, LENGHT / 2 + v.i,
 ft_shader(par.wall_colors[1023 - (v.col + 32 * (v.i / (dist / 14)))],
-par.dist[v.c]));
+par.dist[v.c]) + color);
 }
 
 void				put_player(t_param *par, t_param *ptr_par)

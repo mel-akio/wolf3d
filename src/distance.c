@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/21 15:23:36 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/19 18:20:22 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/25 12:44:03 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,7 +57,7 @@ float		draw_line(t_coor p1, t_coor p2, t_param param, t_param *ptr_par)
 	i = 0;
 	p2 = param.angle;
 	x = p1.x;
-	if (p2.x > -230 && p2.x < param.l_y * 10 + 230)
+	if (p2.x > -200 && p2.x < param.l_y * 10 + 200)
 		return (draw_line2(p1, p2, param, ptr_par));
 	if (x <= p2.x)
 		i = step_x1(p1, p2, &x, ptr_par);
