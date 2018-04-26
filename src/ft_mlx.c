@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/14 13:39:15 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/25 14:43:44 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/26 15:00:35 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -99,11 +99,13 @@ void				show_wall(t_param par, t_param *ptr, int dist, t_var v)
 
 	color = 0;
 	if (ptr->wall_dir[(v.x + v.j) / 4] == 5)
-		color = rgb(0, 0, 10);
-	else if (ptr->wall_dir[(v.x + v.j) / 4] == 10)
-		color = rgb(5, 0, 0);
+		color = rgb(0, 0, 25); // 1
 	else if (ptr->wall_dir[(v.x + v.j) / 4] == 15)
-		color = rgb(5, 0, 10);
+		color = rgb(20, 0, 25); // 2
+	else if (ptr->wall_dir[(v.x + v.j) / 4] == 10)
+		color = rgb(20, 0, 0); // 3
+	else if (ptr->wall_dir[(v.x + v.j) / 4] == 0)
+		color = 6255;
 	ft_setpx((int*)ptr->display.data, v.x + v.j, LENGHT / 2 - v.i,
 ft_shader(par.wall_colors[(v.col + 32 * (v.i / (dist / 14)))],
 par.dist[v.c]) + color);

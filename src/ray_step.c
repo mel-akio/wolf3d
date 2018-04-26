@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/05 11:38:35 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/25 14:00:35 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/26 14:18:30 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,7 @@ int				step_x1(t_coor p1, t_coor p2, int *x, t_param *ptr_par)
 		}
 		coor.x = *x;
 		coor.y = p1.y + ((p2.y - p1.y) * (*x - p1.x)) / (p2.x - p1.x);
-		ft_setpx_2((int*)ptr_par->minimap.data, coor, rgb(255, 0, 0),
+		ft_setpx_2((int*)ptr_par->minimap.data, coor, rgb(0, 0, 255),
 ptr_par->size_map);
 		*x += 1;
 		i++;
@@ -59,7 +59,7 @@ p1.x), ptr_par) == 1)
 		}
 		coor.x = *x;
 		coor.y = p1.y + ((p2.y - p1.y) * (*x - p1.x)) / (p2.x - p1.x);
-		ft_setpx_2((int*)ptr_par->minimap.data, coor, rgb(255, 0, 0),
+		ft_setpx_2((int*)ptr_par->minimap.data, coor, rgb(0, 0, 255),
 ptr_par->size_map);
 		*x -= 1;
 		i++;
@@ -130,14 +130,16 @@ int				side_wall(t_param *param, int x, int y)
 	param->height = param->height;
 	if (x == 0 && y != 9 && y != 0)
 		param->wall_dir[i] = 5;
-	if (x == 9 && y != 9 && y != 0)
+	else if (x == 9 && y != 9 && y != 0)
 		param->wall_dir[i] = 10;
-	if (y == 0 && x != 9 && x != 0)
+	else if (y == 0 && x != 9 && x != 0)
 		param->wall_dir[i] = 15;
-	if (y == 9 && x != 9 && x != 0)
+	else if (y == 9 && x != 9 && x != 0)
 		param->wall_dir[i] = 20;
+	else
+		param->wall_dir[i] = 0;
 	i++;
-	if (i == 200)
-		color_fix(param);
+	//if (i == 200)
+		//color_fix(param);
 	return (0);
 }

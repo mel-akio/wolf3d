@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/19 15:07:48 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/25 14:21:40 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/26 14:47:01 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,18 +52,4 @@ t_coor		*close_map(t_coor *map, t_param *param)
 	}
 	map[param->l_x + 1].z = 0;
 	return (map);
-}
-
-void		color_fix(t_param *param)
-{
-	int i;
-
-	i = 0;
-	while (i < ITER)
-	{
-		if (param->wall_dir[i + 2] != param->wall_dir[i] &&
-param->wall_dir[i - 1] == param->wall_dir[i + 2])
-			param->wall_dir[i] = param->wall_dir[i - 1];
-		i++;
-	}
 }
