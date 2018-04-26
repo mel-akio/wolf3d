@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/14 13:39:15 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/26 15:00:35 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/26 16:45:08 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,7 +39,7 @@ par.size_map.lenght);
 	val.y = par.pl_y;
 	if (ptr_par->hide_map > 0)
 		mlx_put_image_to_window(ptr_par->mlx, ptr_par->win,
-ptr_par->minimap.ptr, 60 - par.pl_x, 60 - par.pl_y);
+ptr_par->minimap.ptr, 10 - par.pl_x / 2, 10 - par.pl_y / 2);
 }
 
 void				put_square(t_coor pos, t_param *ptr_par, int color)
@@ -71,6 +71,7 @@ void				calc_wall(t_param par, int dist, t_param *ptr)
 
 	v.x = 0;
 	v.c = 0;
+	ptr->mid_dist = par.dist[ITER / 2];
 	make_mask(ptr, &ptr->display, "backgrounds/mask.xpm", ptr->size_map);
 	while (v.c != par.iter)
 	{
@@ -99,11 +100,11 @@ void				show_wall(t_param par, t_param *ptr, int dist, t_var v)
 
 	color = 0;
 	if (ptr->wall_dir[(v.x + v.j) / 4] == 5)
-		color = rgb(0, 0, 25); // 1
+		color = rgb(0, 0, 25);
 	else if (ptr->wall_dir[(v.x + v.j) / 4] == 15)
-		color = rgb(20, 0, 25); // 2
+		color = rgb(20, 0, 25);
 	else if (ptr->wall_dir[(v.x + v.j) / 4] == 10)
-		color = rgb(20, 0, 0); // 3
+		color = rgb(30, 0, 0);
 	else if (ptr->wall_dir[(v.x + v.j) / 4] == 0)
 		color = 6255;
 	ft_setpx((int*)ptr->display.data, v.x + v.j, LENGHT / 2 - v.i,

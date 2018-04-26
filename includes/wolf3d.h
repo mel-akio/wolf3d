@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/14 13:39:43 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/25 13:14:27 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/26 15:20:53 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -119,6 +119,7 @@ typedef struct		s_param
 	t_coor			angle;
 	int				direction;
 	int				dist[500];
+	int				mid_dist;
 	int				color[500];
 	int				i[3];
 	int				iter;

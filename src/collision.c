@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/27 15:06:40 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/25 12:48:49 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/26 17:01:40 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,7 @@ int		key_event(int keycode, t_param *param)
 	else if (keycode == KEY_ESC)
 		exit_game(param);
 	else if (keycode == KEY_A || keycode == KEY_W || keycode == KEY_D ||
-keycode == KEY_S)
+keycode == KEY_S || keycode == KEY_UP || keycode == KEY_DOWN)
 	{
 		collision(param, keycode);
 		param->motion += 0.3;
@@ -50,9 +50,9 @@ degres - 1.6) * 3, param)) != 1))
 		param->pl_x += cos(param->angles[param->iter / 2].degres - 1.6) * 3;
 		param->pl_y += sin(param->angles[param->iter / 2].degres - 1.6) * 3;
 	}
-	else if (keycode == KEY_W && ((check_grid(param->pl_x + cos(param->angles
-[param->iter / 2].degres) * 3, param->pl_y + sin(param->angles[param->iter / 2]
-.degres) * 3, param)) != 1))
+	else if ((keycode == KEY_W || keycode == KEY_UP) && ((check_grid(param->
+pl_x + cos(param->angles[param->iter / 2].degres) * 3, param->pl_y +
+sin(param->angles[param->iter / 2].degres) * 3, param)) != 1))
 	{
 		param->pl_x += cos(param->angles[param->iter / 2].degres) * 3;
 		param->pl_y += sin(param->angles[param->iter / 2].degres) * 3;
@@ -69,9 +69,9 @@ iter / 2].degres + 1.6) * 3, param)) != 1))
 		param->pl_x += cos(param->angles[param->iter / 2].degres + 1.6) * 3;
 		param->pl_y += sin(param->angles[param->iter / 2].degres + 1.6) * 3;
 	}
-	else if (keycode == KEY_S && ((check_grid(param->pl_x - cos(param->angles
-[param->iter / 2].degres) * 3, param->pl_y - sin(param->angles[param->iter / 2]
-.degres) * 3, param)) != 1))
+	else if ((keycode == KEY_S || keycode == KEY_DOWN) && ((check_grid(param->
+	pl_x - cos(param->angles[param->iter / 2].degres) * 3, param->pl_y -
+sin(param->angles[param->iter / 2].degres) * 3, param)) != 1))
 	{
 		param->pl_x -= cos(param->angles[param->iter / 2].degres) * 3;
 		param->pl_y -= sin(param->angles[param->iter / 2].degres) * 3;
