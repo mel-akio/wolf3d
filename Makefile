@@ -34,7 +34,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) libft/libft.a minilibx_macos/libmlx.a $(FRAMEWORK) -o $(NAME)
 
-./%.o:./%.c $(INCLUDE)
+./%.o:./%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 	
 $(LIBFT):

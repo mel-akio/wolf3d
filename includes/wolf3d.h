@@ -6,7 +6,7 @@
 /*   By: mel-akio <mel-akio@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/14 13:39:43 by mel-akio     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/26 15:20:53 by mel-akio    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/04/30 11:40:05 by mel-akio    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -190,7 +190,7 @@ void				free_line(char **tab);
 void				show_menu(t_param *param);
 int					secure(char *path);
 t_coor				*close_map(t_coor *map, t_param *param);
-int					side_wall(t_param *param, int x , int y);
+int					side_wall(t_param *param, int x, int y);
 void				color_fix(t_param *param);
 
 #endif
