@@ -25,6 +25,13 @@ void			ft_hook(t_param *param)
 	mlx_hook(param->win, KEY_PRESS, KEY_PRESS_MASK, key_event, param);
 }
 
+void			update(t_param *param)
+{
+	mlx_key_hook(param->win, key_event, param);
+	ft_hook(param);
+	mlx_loop(param->mlx);
+}
+
 int				main(int argc, char **argv)
 {
 	int			fd;
@@ -39,7 +46,8 @@ int				main(int argc, char **argv)
 	if (usage(argc) && size.z == -1)
 		return (0);
 	fd = open(argv[1], O_RDONLY);
-	line = ft_memalloc(sizeof(char*) * (size.y * size.y) + 1);
+	if (!(line = malloc(sizeof(char*) * (size.y * size.y) + 1)))
+		exit(0);
 	while (get_next_line(fd, &line[param.l_y]))
 		param.l_y++;
 	ft_strdel(&line[param.l_y]);
@@ -48,8 +56,7 @@ int				main(int argc, char **argv)
 		return (0);
 	textures_init(&param);
 	mlx_put_image_to_window(param.mlx, param.win, param.menu.ptr, 0, 0);
-	mlx_key_hook(param.win, key_event, &param);
-	ft_hook(&param);
-	mlx_loop(param.mlx);
+	update(&param);
 	exit_game(&param);
+	return (0);
 }

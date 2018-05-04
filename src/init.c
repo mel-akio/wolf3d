@@ -15,10 +15,12 @@
 
 void			var_init(t_param *param)
 {
-	param->display.ptr = malloc(1024 * 1024);
-	param->wall_colors = malloc(sizeof(int) * (32 * 32) + 1);
-	param->object = malloc(sizeof(param->object) * ITER + 1);
-	param->angles = malloc(sizeof(t_angle) * 500);
+	if (!(param->wall_colors = malloc(sizeof(int) * (32 * 32) + 1)))
+		exit(0);
+	if (!(param->object = malloc(sizeof(param->object) * ITER + 1)))
+		exit(0);
+	if (!(param->angles = malloc(sizeof(t_angle) * 500)))
+		exit(0);
 	param->angle.y = 0;
 	param->angle.x = 30;
 	param->iter = ITER;

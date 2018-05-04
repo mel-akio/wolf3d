@@ -21,7 +21,8 @@ t_coor		*convert_int(char ***str, t_param param)
 	count.x = 0;
 	count.y = 0;
 	count.z = 0;
-	map = (t_coor *)malloc((sizeof(int) * 4) * (param.l_x * param.l_y));
+	if (!(map = (t_coor *)malloc((sizeof(int) * 4) * (param.l_x * param.l_y))))
+		exit(0);
 	while (count.x < param.l_y)
 	{
 		while (count.y < param.l_x)
@@ -47,7 +48,8 @@ t_coor		*make_map(char **str, t_param *param, t_coor size)
 	char	***map;
 
 	i = 0;
-	map = ft_memalloc(sizeof(char **) * size.y + 1);
+	if (!(map = ft_memalloc(sizeof(char **) * size.y + 1)))
+		exit(0);
 	while (str[i] != NULL)
 	{
 		map[i] = ft_strsplit(str[i], ' ');
