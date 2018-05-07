@@ -88,7 +88,6 @@ void			texture_position(unsigned int x, unsigned int y, t_param *param)
 void			exit_game(t_param *param)
 {
 	free(param->angles);
-	free(param->display.ptr);
 	free(param->wall_colors);
 	free(param->object);
 	free(param->map);
