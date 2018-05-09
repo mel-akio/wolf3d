@@ -66,7 +66,7 @@ void			textures_init(t_param *param)
 void			refresh_screen(t_param *param)
 {
 	skybox(param, 0, 0);
-	put_map(*param, 0, param);
+	put_map(*param, param);
 	mlx_put_image_to_window(param->mlx, param->win, param->gun.ptr, (WIDTH /
 2.5) + 70 - (int)param->motion % 12, (LENGHT / 2) + (int)param->motion % 12);
 	mlx_put_image_to_window(param->mlx, param->win, param->crosshair.ptr,

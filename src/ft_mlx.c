@@ -13,13 +13,12 @@
 
 #include "../includes/wolf3d.h"
 
-void				put_map(t_param par, int zoom, t_param *ptr_par)
+void				put_map(t_param par, t_param *ptr_par)
 {
 	t_coor			val;
 	int				i;
 
 	i = -1;
-	zoom = 0;
 	ptr_par->minimap.ptr = mlx_new_image(ptr_par->mlx, par.size_map.width,
 par.size_map.lenght);
 	ptr_par->minimap.data = mlx_get_data_addr(ptr_par->minimap.ptr,
@@ -40,6 +39,7 @@ par.size_map.lenght);
 	if (ptr_par->hide_map > 0)
 		mlx_put_image_to_window(ptr_par->mlx, ptr_par->win,
 ptr_par->minimap.ptr, 10 - par.pl_x / 2, 10 - par.pl_y / 2);
+	mlx_destroy_image(ptr_par->mlx, ptr_par->minimap.ptr);
 }
 
 void				put_square(t_coor pos, t_param *ptr_par, int color)
@@ -70,10 +70,10 @@ void				calc_wall(t_param par, int dist, t_param *ptr)
 	t_var			v;
 
 	v.x = 0;
-	v.c = 0;
+	v.c = -1;
 	ptr->mid_dist = par.dist[ITER / 2];
 	make_mask(ptr, &ptr->display, "backgrounds/mask.xpm", ptr->size_map);
-	while (v.c != par.iter)
+	while (++v.c != par.iter)
 	{
 		dist = LENGHT * 10 / (par.dist[v.c]);
 		v.col = par.angles[v.c].texture_col;
@@ -89,9 +89,9 @@ void				calc_wall(t_param par, int dist, t_param *ptr)
 			}
 		}
 		v.x += WIDTH / par.iter;
-		v.c++;
 	}
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->display.ptr, 0, 0);
+	mlx_destroy_image(ptr->mlx, ptr->display.ptr);
 }
 
 void				show_wall(t_param par, t_param *ptr, int dist, t_var v)

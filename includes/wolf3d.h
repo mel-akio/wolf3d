@@ -145,7 +145,7 @@ void				var_init(t_param *param);
 t_coor				*convert_int(char ***str, t_param param);
 t_coor				*make_map(char **str, t_param *param, t_coor size);
 int					key_event(int keycode, t_param *param);
-void				put_map(t_param par, int zoom, t_param *ptr_par);
+void				put_map(t_param par, t_param *ptr_par);
 void				put_player(t_param *par, t_param *ptr_par);
 void				put_square(t_coor pos, t_param *ptr_par, int color);
 float				draw_line(t_coor val1, t_coor val2, t_param param, t_param
